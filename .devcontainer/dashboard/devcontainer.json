@@ -3,5 +3,5 @@
     "dockerComposeFile": ["../../compose.yml"],
     "service": "dashboard-app",
     // "shutdownAction": "none",
-    "workspaceFolder": "/app/dashboard"
+    "workspaceFolder": "/app/dashboard-app/"
   }
