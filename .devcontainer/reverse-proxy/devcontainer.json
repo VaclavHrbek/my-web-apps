@@ -1,0 +1,8 @@
+{
+    "name": "Reverse Proxy Nginx container",
+    "dockerComposeFile": ["../../compose.yml"],
+    "service": "reverse-proxy",
+    // "shutdownAction": "none",
+    "workspaceFolder": "/"
+  }
+  
