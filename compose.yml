@@ -18,3 +18,12 @@ services:
       - "3000:3000"
     command: sleep infinity
 
+  to-do-app:
+    image: node:latest
+    container_name: to-do-app
+    volumes:
+      - .:/app
+    ports:
+      - "3001:3001"
+    command: sleep infinity
+
