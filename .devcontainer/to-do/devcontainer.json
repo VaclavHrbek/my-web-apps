@@ -1,0 +1,7 @@
+{
+    "name": "To-Do container",
+    "dockerComposeFile": ["../../compose.yml"],
+    "service": "to-do-app",
+    // "shutdownAction": "none",
+    "workspaceFolder": "/app/to-do-app/"
+  }
