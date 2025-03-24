@@ -14,8 +14,6 @@ services:
     container_name: dashboard-app
     volumes:
       - .:/app
-    ports:
-      - "3000:3000"
     command: sleep infinity
 
   to-do-app:
@@ -23,7 +21,5 @@ services:
     container_name: to-do-app
     volumes:
       - .:/app
-    ports:
-      - "3001:3001"
     command: sleep infinity
 
