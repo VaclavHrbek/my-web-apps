@@ -1,0 +1,7 @@
+{
+    "name": "Database container",
+    "dockerComposeFile": ["../../compose.yml"],
+    "service": "database",
+    // "shutdownAction": "none",
+    "workspaceFolder": "/data/db/"
+  }
