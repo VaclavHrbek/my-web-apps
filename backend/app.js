@@ -12,7 +12,7 @@ const get_one_todo_item = async () => {
         const item = await items.findOne();
         return item;
     } finally {
-        await client.close();
+        // await client.close();
     }
 }
 
