@@ -1,29 +1,40 @@
+<template>
+  <v-app>
+    <v-container>
+      <v-row justify="center">
+        <v-col cols="12" md="8">
+          <v-card>
+            <v-card-title>
+              <h2 class="text-h5">To-Do App</h2>
+            </v-card-title>
+            <v-card-text>
+              <v-text-field label="Add a new task" outlined></v-text-field>
+              <v-btn color="primary" class="mt-3">Add Task</v-btn>
+              <div v-if="todos.length" class="mt-4">
+                <h3 class="text-h6">Tasks:</h3>
+                <ul>
+                  <li v-for="(task, index) in todos" :key="index">{{ task }}</li>
+                </ul>
+              </div>
+              <div v-if="!todos.length" class="mt-4">
+                <h3 class="text-h6">No tasks available</h3>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
+</template>
+
 <script setup>
-const url = ref('http://backend:3000');
-const { data, error, pending } = await useFetch(url);
+import { useTodoStore } from '~/stores/todoStore';
+import { onMounted, computed } from 'vue';
 
-const todos = computed(() => data.value || []);
+const todoStore = useTodoStore();
+await todoStore.fetchTodos();
 
-if (error.value) {
-  console.error('Error fetching data:', error.value);
-}
-
-console.log('Data:', data.value);
+// Reactive todos for the template
+const todos = computed(() => todoStore.todos);
 </script>
 
-<template>
-  <main>
-    <div>
-      <h1>Todo</h1>
-      <div v-if="pending">Loading...</div>
-      <div v-else-if="error">Error: {{ error.message }}</div>
-      <ul v-else>
-        <li v-for="todo in todos" :key="todo._id">
-          <strong>{{ todo.title }}</strong> - 
-          <span v-if="todo.completed">Completed</span>
-          <span v-else>Not Completed</span>
-        </li>
-      </ul>
-    </div>
-  </main>
-</template>
