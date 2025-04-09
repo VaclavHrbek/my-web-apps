@@ -1,11 +1,14 @@
 import { Client } from './database.js';
 import express from 'express';
+import cors from 'cors';
 
 const app = express()
-const port = 3000
 
+const port = 3000
 const client = new Client();
 
+
+app.use(cors())
 
 app.get('/', async (req, res) => {
     try {
@@ -17,5 +20,5 @@ app.get('/', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Listening on port ${port}`)
+    console.log(`CORS-enabled web server listening on port ${port}`)
 })
