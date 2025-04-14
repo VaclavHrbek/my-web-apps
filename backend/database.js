@@ -27,6 +27,16 @@ export class Client {
         return items;
     }
 
+    async add_todo_item(item) {
+        if (!this.isConnected) {
+            await this.connect();
+        }
+        const database = this.client.db("to-do");
+        const collection = database.collection("to-do-items");
+        const result = await collection.insertOne(item);
+        return result;
+    }
+
     disconnect() {
         this.client.close();
     }
