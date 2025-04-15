@@ -1,16 +1,39 @@
 <template>
     <div class="task-preview">  
         <div class="task-header">
-            <p>Task 1</p>
+            <p>{{ task.name }} </p>
         </div>
         <div class="task-details">
-            <TasksPreviewDate />
-            <TasksPreviewProject />
-            <TasksPreviewStatus />
+            <TasksPreviewDate :date="task.date"/>
+            <TasksPreviewProject :project="task.project"/>
+            <TasksPreviewStatus :status="task.status"/>
         </div>
     </div>
     <hr class="task-divider">
+    <button @click="toogle_modal">Show modal</button>
+    <div v-if="show_modal">
+        <TasksPreviewModal @close-modal="close_modal" />
+    </div>
 </template>
+
+<script setup>
+    const task = {
+        id: 1,
+        name: 'Task 123',
+        date: '2023-10-01-232',
+        project: 'Project 1',
+        status: 'In Progress'
+    }
+    defineEmits(['closeModal']);
+    const show_modal = ref(false);
+    const toogle_modal = () => {
+        show_modal.value = !show_modal.value;
+    }
+    const close_modal = () => {
+        show_modal.value = false;
+    }
+
+</script>
 
 <style scoped>
 .task-preview {

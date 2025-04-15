@@ -1,6 +1,12 @@
 <template>
-    <p class="task-details-items">In Progress</p>
+    <p class="task-details-items">{{ status }}</p>
 </template>
+
+<script setup>
+    defineProps({
+        status: String
+    })
+</script>
 
 <style scoped>
 .task-details-items {

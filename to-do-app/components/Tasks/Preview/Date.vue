@@ -1,6 +1,12 @@
 <template>
-    <p class="task-details-items">2023-10-01</p>
+    <p class="task-details-items">{{ date }}</p>
 </template>
+
+<script setup>
+    defineProps({
+        date: String
+    })
+</script>
 
 <style scoped>
 .task-details-items {

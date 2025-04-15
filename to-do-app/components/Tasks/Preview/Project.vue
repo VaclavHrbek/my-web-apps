@@ -1,6 +1,12 @@
 <template>
-    <p class="project">Inbox</p>
+    <p class="project">{{ project }}</p>
 </template>
+
+<script setup>
+    defineProps({
+        project: String
+    })
+</script>
 
 <style scoped>
 .project {
