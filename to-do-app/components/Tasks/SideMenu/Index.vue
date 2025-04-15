@@ -1,6 +1,6 @@
 <template>
     <div class="side-menu">
-        <AddButton />
+        <TasksSideMenuAddButton />
     </div>
 </template>
 
@@ -9,7 +9,6 @@
     background-color: lightblue;
     float: left;
     width: 20%;
-    width: 200px;
-
+    width: 100%;
 }
 </style>

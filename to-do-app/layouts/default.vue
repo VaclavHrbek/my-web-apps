@@ -5,7 +5,7 @@
         <div class="app">
           <AppHeader />
           <div class="container">
-            <SideMenu />
+            <TasksSideMenu />
             <slot />
           </div>
           <AppFooter />

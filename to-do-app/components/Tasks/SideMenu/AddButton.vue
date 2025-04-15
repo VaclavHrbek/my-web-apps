@@ -1,6 +1,6 @@
 <template>
     <button class="add-button">
-        Add
+        Add Task
     </button>
 </template>
 
